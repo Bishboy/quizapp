@@ -8,11 +8,18 @@ export default {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
     extend: {
       fontFamily: {
         body: ['Inter', 'sans-serif'],
         headline: ['Inter', 'sans-serif'],
-        code: ['monospace'],
+        code: ['monospace', 'monospace'],
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -65,6 +72,16 @@ export default {
           border: 'hsl(var(--sidebar-border))',
           ring: 'hsl(var(--sidebar-ring))',
         },
+        'icon-html-bg': 'hsl(var(--icon-html-bg))',
+        'icon-html-fg': 'hsl(var(--icon-html-fg))',
+        'icon-css-bg': 'hsl(var(--icon-css-bg))',
+        'icon-css-fg': 'hsl(var(--icon-css-fg))',
+        'icon-js-bg': 'hsl(var(--icon-js-bg))',
+        'icon-js-fg': 'hsl(var(--icon-js-fg))',
+        'icon-accessibility-bg': 'hsl(var(--icon-accessibility-bg))',
+        'icon-accessibility-fg': 'hsl(var(--icon-accessibility-fg))',
+        'correct': 'hsl(var(--color-correct))',
+        'incorrect': 'hsl(var(--color-incorrect))',
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -93,6 +110,11 @@ export default {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
+      boxShadow: {
+        'interactive': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 0 0 3px hsl(var(--primary) / 0.3)',
+        'option-default': '0 4px 12px rgba(0, 0, 0, 0.08)',
+        'option-hover': '0 6px 16px rgba(0, 0, 0, 0.12)',
+      }
     },
   },
   plugins: [require('tailwindcss-animate')],
