@@ -41,6 +41,29 @@ export default function QuizPage() {
       setShowError(false);
     }
   };
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.innerHTML = `
+      .pattern-bg {
+        background-image: 
+          radial-gradient(circle at 100% 0%, hsl(var(--accent) / 0.1) 0px, transparent 60px),
+          radial-gradient(circle at 0% 100%, hsl(var(--accent) / 0.1) 0px, transparent 60px);
+        background-size: 120px 120px;
+        background-position: 0 0, 0 0;
+      }
+      .dark .pattern-bg {
+        background-image: 
+          radial-gradient(circle at 100% 0%, hsl(var(--accent) / 0.05) 0px, transparent 60px),
+          radial-gradient(circle at 0% 100%, hsl(var(--accent) / 0.05) 0px, transparent 60px);
+      }
+    `;
+    document.head.appendChild(style);
+
+    return () => {
+      // Cleanup
+      document.head.removeChild(style);
+    };
+  }, []);
 
   const handleOptionSelect = (option: string) => {
     if (isSubmitted) return;
@@ -272,24 +295,7 @@ export default function QuizPage() {
     );
   }
 
-  return null; // Should not happen
+  return null; 
 }
 
-// Add some decorative patterns for background
-const style = document.createElement('style');
-style.innerHTML = `
-.pattern-bg {
-  background-image: 
-    radial-gradient(circle at 100% 0%, hsl(var(--accent) / 0.1) 0px, transparent 60px),
-    radial-gradient(circle at 0% 100%, hsl(var(--accent) / 0.1) 0px, transparent 60px);
-  background-size: 120px 120px;
-  background-position: 0 0, 0 0;
-}
-.dark .pattern-bg {
-  background-image: 
-    radial-gradient(circle at 100% 0%, hsl(var(--accent) / 0.05) 0px, transparent 60px),
-    radial-gradient(circle at 0% 100%, hsl(var(--accent) / 0.05) 0px, transparent 60px);
-}
-`;
-document.head.appendChild(style);
-
+ 
